@@ -25,7 +25,7 @@ const EntryCard = ({ title, entryText, date, entryId} : {title: any, entryText:a
     return (
         <Card className="flex flex-col  justify-between">
             <CardHeader>
-                <CardTitle className="text-2xl font-md text-ellipsis overflow-hidden">{title}</CardTitle>
+                <CardTitle className="text-2xl font-md ">{title}</CardTitle>
                 <CardDescription>{customFormattedDate}</CardDescription>
                 
             </CardHeader>
