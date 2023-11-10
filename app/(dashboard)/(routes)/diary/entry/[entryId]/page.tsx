@@ -13,8 +13,14 @@ import axios from "axios";
 
 const EntryPage = ({ params }: { params: { entryId: string } }) => {
 
+  interface EntryData {
+    title: string;
+    date: string;
+    entryText: string;
+  }
+
   const [isLoading, setIsLoading] = useState(true);
-  const [entryData, setEntryData] = useState({
+  const [entryData, setEntryData] = useState<EntryData>({
     title: "",
     date: "",
     entryText: "",
