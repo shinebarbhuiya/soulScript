@@ -48,7 +48,7 @@ const DashboardPage = () => {
 
 
             (entries.map((entry) => (
-              <EntryCard  title={entry.title} entryText={entry.entryText} date={entry.date} entryId={entry.id} />
+              <EntryCard key={entry.id} title={entry.title} entryText={entry.entryText} date={entry.date} entryId={entry.id} />
             )))
           }
         </div>

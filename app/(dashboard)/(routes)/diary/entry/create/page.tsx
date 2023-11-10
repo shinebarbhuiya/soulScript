@@ -57,7 +57,7 @@ const CreateEntryPage = () => {
   return (
    
     <div className="py-4    md:w-3/4 md:m-auto md:mt-6 md:p-4 md:border md:font-bold">
-        <h1 className=' py-4 border-b-4 font-bold text-2xl'>Enter Today's Thoughts Here</h1>
+        <h1 className=' py-4 border-b-4 font-bold text-2xl'>Enter Your Entry For Today : </h1>
         {/* {currUserId} */}
         <div className="py-6">
           <EntryForm  />

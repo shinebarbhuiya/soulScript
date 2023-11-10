@@ -16,11 +16,12 @@ const EntryPage = ({ params }: { params: { entryId: string } }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [entryData, setEntryData] = useState<any[]>([]);
 
-  const entryId = params.entryId
+  
 
   // const { userId } = auth();
 
   useEffect(() => {
+    const entryId = params.entryId
     const getEntry = axios.get(`/api/entry/${entryId}`)
       .then((res) => {
         setEntryData(res.data)
