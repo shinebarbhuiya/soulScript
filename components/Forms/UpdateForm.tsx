@@ -47,13 +47,28 @@ import { useRouter } from 'next/navigation'
 
 
 
-const EntryForm = () => {
+const UpdateForm =  ({updateData} : { updateData : any}) => {
+
+    
+   
+    const entryId = updateData.id
+
+    // const [isLoading, setIsLoading] = useState(true)
+
+    
+    
 
     const { toast } = useToast()
 
     const router = useRouter()
 
-    const [date, setDate] = useState<Date | undefined>(new Date())
+
+
+    // const [date, setDate] = useState<Date | undefined>(new Date(updateData.date))
+
+    const date = new Date(updateData.date)
+
+    
 
     const [ isSubmitting, setIsSubmitting] = useState(false)
 
@@ -63,8 +78,8 @@ const EntryForm = () => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            title: "",
-            entryText: "",
+            title: updateData.title,
+            entryText: updateData.entryText,
             todayDate: date
 
         },
@@ -76,7 +91,7 @@ const EntryForm = () => {
         // createUser()
         setIsSubmitting(true)
 
-        const response = await axios.post("/api/create", {
+        const response = await axios.put(`/api/update/${entryId}`, {
             values: {
                 title : values.title,
                 entryText : values.entryText,
@@ -84,17 +99,21 @@ const EntryForm = () => {
             }
         })
 
-        const entryId = await response.data.id
+
+        // const entryId = await response.data.id
+
+        
         toast({
-            title: "Successfully added the entry! ",
+            title: "Successfully updated the entry! ",
             description: "You should be proud of yourself to keep the memory written!",
         })
 
-        form.reset();
+        
         
         
         console.log(response.data)
         router.push(`/diary/entry/${entryId}`)
+        
     }
 
 
@@ -211,4 +230,4 @@ const EntryForm = () => {
     )
 }
 
-export default EntryForm
+export default UpdateForm

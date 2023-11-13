@@ -56,6 +56,19 @@ body,
   }
 }
 
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem/* 32px */;
+  padding-left: 1rem/* 32px */;
+}
+@media (min-width: 1400px) {
+  .container {
+      max-width: 1400px;
+  }
+}
+
  
 @layer base {
   * {
