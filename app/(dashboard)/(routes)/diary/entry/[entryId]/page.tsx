@@ -71,7 +71,7 @@ const EntryPage = ({ params }: { params: { entryId: string } }) => {
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  }, [])
+  }, [params.entryId])
 
 
   const handleDelete = async () => {
