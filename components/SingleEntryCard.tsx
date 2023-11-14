@@ -31,7 +31,7 @@ const SingleEntryCard = ({title, date, entryText} : { title : string, date: stri
 
 
   return (
-    <Card className="bg-gray-800/20  font-mono">
+    <Card className="bg-gray-800/20 ">
         <CardHeader className="">
           <CardTitle className="border-b-4 pb-2 text-2xl 	">{title}</CardTitle>
           <CardDescription> {customFormattedDate}</CardDescription>
