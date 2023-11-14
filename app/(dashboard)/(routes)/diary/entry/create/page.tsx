@@ -18,16 +18,39 @@ import { Button } from "@/components/ui/button"
 
 
 import EntryForm from "@/components/Forms/EntryForm";
+// import setSubmitted from "@/lib/setSubmitted";
+import { NavStatus } from "@/lib/Store";
+
+
+
 
 
 
 
 // const prisma = new PrismaClient();
 
+
+
 const CreateEntryPage = () => {
+
+  
+    // const navState = NavStatus();
+
     const currUserId = checkCurrentUser();
     console.log(currUserId)
 
+    
+    // navState.onSubmitted()
+
+   
+    
+
+
+    // setSubmitted(true)
+
+    
+
+   
 
 
    

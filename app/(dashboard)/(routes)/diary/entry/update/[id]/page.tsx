@@ -1,5 +1,6 @@
 "use client"
 import UpdateForm from "@/components/Forms/UpdateForm"
+import CustomLoader from "@/utils/Loader";
 import axios from "axios";
 
 import { useEffect, useState } from "react";
@@ -55,7 +56,7 @@ const UpdatePage = ({ params } : { params : { id: String}}) => {
         <h1 className=' py-4 border-b-4 font-bold text-2xl'>Update Your Entry : </h1>
         {/* {currUserId} */}
 
-        {isLoading ? <div> Loading form . . . </div> :
+        {isLoading ?  <div className="flex items-center justify-center text-2xl">  <CustomLoader /> </div>  :
           <div className="py-6">
                     <UpdateForm  updateData={entryData}    />
           </div>

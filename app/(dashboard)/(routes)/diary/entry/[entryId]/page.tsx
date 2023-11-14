@@ -11,6 +11,9 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
+import CustomLoader from "@/utils/Loader";
+
+
 
 
 
@@ -111,10 +114,10 @@ const EntryPage = ({ params }: { params: { entryId: string } }) => {
 
    
     
-    <div className="py-4  md:w-3/4 md:m-auto md:mt-6 md:p-4 md:border md:font-bold">
+    <div className="py-4  md:w-3/4  md:mx-auto md:mt-6 md:p-4   md:font-bold">
       {/* <h1 className=' py-4 border-b-4 font-bold text-2xl'>This is the title</h1> */}
       {/* {is} */}
-      {isLoading ? <div> Loading . . . </div> :
+      {isLoading ? <div className="flex items-center justify-center text-2xl">  <CustomLoader /> </div> :
 
         
       

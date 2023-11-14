@@ -6,21 +6,63 @@ import Link from "next/link"
 import { Loader2, PenSquare } from "lucide-react"
 import { ModeToggle } from "../toggle"
 import { UserButton } from "@clerk/nextjs"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from 'next/navigation'
+import { NavStatus } from "@/lib/Store"
+
+import { usePathname } from 'next/navigation'
+
 
 
 const caveat = Caveat({subsets: ['latin']})
 
 const Navigation = () => {
-    const router = useRouter()
+    
 
-    const [ isSubmitting, setIsSubmitting] = useState(false)
+    const pathname = usePathname()
+
+
+
+
+    const navState = NavStatus();
+
+    const router = useRouter()
+    
+
+    const isSubmitting = navState.isSubmitting
+
+    console.log(isSubmitting)
+    console.log(pathname)
+
+    useEffect(() => {
+        (pathname === '/diary/entry/create' && navState.onSubmitted())
+    }, [pathname])
+
+
+    
+
+   
+
+    // const [ isSubmitting, setIsSubmitting] = useState(false)
+
+    
 
     const handleClick = () => {
-        setIsSubmitting(true)
+
+        if (pathname === '/diary/entry/create') {
+            navState.onSubmitted();
+        } else {
+            navState.onSubmitting();
+        }
+
+
+        
+        
+        // navState.onSubmitting()
+        
         router.push("/diary/entry/create")
-        setIsSubmitting(false)
+        
+        
     }
 
   return (
