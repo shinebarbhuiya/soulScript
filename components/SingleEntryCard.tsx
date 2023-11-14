@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils"
 
 import { Indie_Flower } from "next/font/google"
-import parse from 'html-react-parser'
+
 
 
 
