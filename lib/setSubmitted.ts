@@ -1,16 +1,16 @@
-"use client"
+// "use client"
 
-import { NavStore } from "./Store";
+// import { NavStore } from "./Store";
 
 
-const setSubmitted = (value : any) => {
-    const navState = NavStore();
+// const setSubmitted = (value : any) => {
+//     const navState = NavStore();
 
-    (value && navState.onSubmitted()) 
+//     (value && navState.onSubmitted()) 
    
-    return true
-}
+//     return true
+// }
 
 
-export default setSubmitted
+// export default setSubmitted
  
