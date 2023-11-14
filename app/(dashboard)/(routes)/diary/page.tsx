@@ -41,16 +41,30 @@ const DashboardPage = () => {
 
       <div>
         <div className="font-md text-2xl py-6 md:text-3xl">Your Entries 👇</div>
+
+        
+
+        {
+          // Custom loader for Md screen or bigger because it's showing in Grid 
+        (isLoading === true) && (
+          
+          <div className=" hidden  items-center justify-center w-full h-96  md:flex">
+            <CustomLoader />
+          </div>
+        
+        )}
         <div className="grid md:grid md:grid-cols-2 gap-4">
 
-        {isLoading ? (
-          <div>
-            <div className="flex items-center justify-center text-2xl">
+        {  
+        //Mobile Loader 
+        isLoading === true ? (
+          
+            <div className=" flex  items-center justify-center  w-full h-96 md:hidden">
               <CustomLoader />
             </div>
-          </div>
+          
         ) : entries.length === 0 ? (
-          <div> Sorry, you don't have any entries! </div>
+          <div className="text-xl  font-mono flex items-center  h-16"> Sorry, you don't have any entries! Please create one. </div>
         ) : (
           entries.map((entry) => (
             <EntryCard key={entry.id} title={entry.title} entryText={entry.entryText} date={entry.date} entryId={entry.id} />

@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils"
 
 import { Indie_Flower } from "next/font/google"
+import parse from 'html-react-parser'
 
 
 
@@ -23,15 +24,20 @@ const SingleEntryCard = ({title, date, entryText} : { title : string, date: stri
     const formattedDate = normalDate.toDateString();
     const customFormattedDate = formattedDate.replace(/(\w+) (\w+) (\d+) (\d+)/, '$1, $2 $3 $4');
 
+    const formattedText = entryText.split('\n').map((line, index) => [
+      line,
+      <br key={index} />,
+    ]);
+
 
   return (
-    <Card className="bg-gray-800/20  ">
+    <Card className="bg-gray-800/20  font-mono">
         <CardHeader className="">
           <CardTitle className="border-b-4 pb-2 text-2xl 	">{title}</CardTitle>
           <CardDescription> {customFormattedDate}</CardDescription>
         </CardHeader>
-        <CardContent>
-          <p className={cn("font-normal")}>{entryText}</p>
+        <CardContent >
+          <p className={cn("font-normal") }>{formattedText}</p>
         </CardContent>
         <CardFooter className="block  justify-center items-center ">
           <p className="font-normal text-sm text-center ">💥 Live A Happy Life! 💥</p>

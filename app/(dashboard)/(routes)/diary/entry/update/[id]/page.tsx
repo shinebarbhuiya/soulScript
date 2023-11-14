@@ -56,7 +56,7 @@ const UpdatePage = ({ params } : { params : { id: String}}) => {
         <h1 className=' py-4 border-b-4 font-bold text-2xl'>Update Your Entry : </h1>
         {/* {currUserId} */}
 
-        {isLoading ?  <div className="flex items-center justify-center text-2xl">  <CustomLoader /> </div>  :
+        {isLoading ?  <div className="flex items-center justify-center h-96 text-2xl">  <CustomLoader /> </div>  :
           <div className="py-6">
                     <UpdateForm  updateData={entryData}    />
           </div>
