@@ -43,7 +43,7 @@ const UpdatePage = ({ params } : { params : { id: String}}) => {
       
       })
 
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   

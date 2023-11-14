@@ -35,8 +35,13 @@ const Navigation = () => {
     console.log(pathname)
 
     useEffect(() => {
-        (pathname === '/diary/entry/create' && navState.onSubmitted())
-    }, [pathname])
+        if (pathname === '/diary/entry/create') {
+            navState.onSubmitted();
+        }
+
+
+// eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pathname]);
 
 
     
